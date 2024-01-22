@@ -1,0 +1,26 @@
+name: zoe
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - cuda=11.7.1
+  - h5py=3.7.0
+  - hdf5=1.12.2
+  - matplotlib=3.6.2
+  - matplotlib-base=3.6.2
+  - numpy=1.24.1
+  - opencv=4.6.0
+  - pip=22.3.1
+  - python=3.9.7
+  - pytorch=1.13.1
+  - pytorch-cuda=11.7
+  - pytorch-mutex=1.0
+  - scipy=1.10.0
+  - torchaudio=0.13.1
+  - torchvision=0.14.1
+  - pip:
+    - huggingface-hub==0.11.1
+    - timm==0.6.12
+    - tqdm==4.64.1
+    - wandb==0.13.9
