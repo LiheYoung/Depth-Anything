@@ -62,11 +62,11 @@ if __name__ == '__main__':
         if args.img_path.endswith('txt'):
             with open(args.img_path, 'r') as f:
                 filenames = f.read().splitlines()
-                filenames = [os.path.join(args.img_path, filename) for filename in filenames]
         else:
             filenames = [args.img_path]
     else:
         filenames = os.listdir(args.img_path)
+        filenames = [os.path.join(args.img_path, filename) for filename in filenames]
         filenames.sort()
     
     for filename in tqdm(filenames):
