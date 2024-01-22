@@ -59,7 +59,7 @@ We highlight the **best** and *second best* results in **bold** and *italic* res
 
 ## Pre-trained models
 
-We provide three models of varying scales for robust relatve depth estimation:
+We provide three models of varying scales for robust relative depth estimation:
 
 - Depth-Anything-ViT-Small (24.8M)
 
