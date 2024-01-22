@@ -205,7 +205,7 @@ if __name__ == '__main__':
     model.load_state_dict(state_dict)
 
     # save locally
-    # model.save_pretrained("depth_anything_dinov2_vits14")
+    # model.save_pretrained("depth_anything_dinov2_vits14", config=config)
 
     # upload to huggingface hub
     # model.push_to_hub("nielsr/depth_anything_dinov2_vits14", config=config)
