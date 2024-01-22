@@ -57,7 +57,6 @@ if __name__ == '__main__':
         NormalizeImage(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
         PrepareForNet(),
     ])
-    
     if os.path.isfile(args.img_path):
         if args.img_path.endswith('txt'):
             with open(args.img_path, 'r') as f:
@@ -66,8 +65,8 @@ if __name__ == '__main__':
             filenames = [args.img_path]
     else:
         filenames = os.listdir(args.img_path)
-        filenames = [os.path.join(args.img_path, filename) for filename in filenames]
         filenames.sort()
+        filenames = [os.path.join(args.img_path, filename) for filename in filenames]
     
     for filename in tqdm(filenames):
         raw_image = cv2.imread(filename)
