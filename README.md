@@ -10,7 +10,6 @@
 <a href=""><img src='https://img.shields.io/badge/arXiv-Depth Anything-red' alt='Paper PDF'></a>
 <a href='https://depth-anything.github.io'><img src='https://img.shields.io/badge/Project_Page-Depth Anything-green' alt='Project Page'></a>
 <a href='https://huggingface.co/spaces/LiheYoung/Depth-Anything'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue'></a>
-<a href='https://huggingface.co/spaces/LiheYoung/Depth-Anything'><img src='https://huggingface.co/datasets/huggingface/badges/blob/main/README.md?code=true'></a>
 </div>
 
 This work presents Depth Anything, a highly practical solution for robust monocular depth estimation by training on a combination of 1.5M labeled images and **62M+ unlabeled images**.
@@ -107,7 +106,7 @@ You can also try our [online demo](https://huggingface.co/spaces/LiheYoung/Depth
 
 ### Import Depth Anything to your project
 
-If you want to use Depth Anything in our own project, you can simply follow [``run.py``](run.py) to load our models and define data pre-processing. 
+If you want to use Depth Anything in your own project, you can simply follow [``run.py``](run.py) to load our models and define data pre-processing. 
 
 <details>
 <summary>Code snippet (note the difference between our data pre-processing and that of MiDaS.)</summary>
@@ -154,7 +153,7 @@ If you find this project useful, please consider citing:
 @article{depthanything,
       title={Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data}, 
       author={Yang, Lihe and Kang, Bingyi and Huang, Zilong and Xu, Xiaogang and Feng, Jiashi and Zhao, Hengshuang},
-      journal={arXiv:},
+      journal={arXiv:2401.10891},
       year={2024}
 }
 ```
