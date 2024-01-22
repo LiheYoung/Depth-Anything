@@ -62,6 +62,7 @@ if __name__ == '__main__':
         if args.img_path.endswith('txt'):
             with open(args.img_path, 'r') as f:
                 filenames = f.read().splitlines()
+                filenames = [os.path.join(args.img_path, filename) for filename in filenames]
         else:
             filenames = [args.img_path]
     else:
