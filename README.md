@@ -109,7 +109,7 @@ You can also try our [online demo](https://huggingface.co/spaces/LiheYoung/Depth
 If you want to use Depth Anything in your own project, you can simply follow [``run.py``](run.py) to load our models and define data pre-processing. 
 
 <details>
-<summary>Code snippet (note the difference between our data pre-processing and that of MiDaS.)</summary>
+<summary>Code snippet (note the difference between our data pre-processing and that of MiDaS)</summary>
 
 ```python
 from depth_anything.dpt import DPT_DINOv2
