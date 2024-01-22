@@ -17,6 +17,10 @@ This work presents Depth Anything, a highly practical solution for robust monocu
 
 ![teaser](assets/teaser.png)
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/depth-anything-unleashing-the-power-of-large/monocular-depth-estimation-on-nyu-depth-v2)](https://paperswithcode.com/sota/monocular-depth-estimation-on-nyu-depth-v2?p=depth-anything-unleashing-the-power-of-large)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/depth-anything-unleashing-the-power-of-large/monocular-depth-estimation-on-kitti-eigen)](https://paperswithcode.com/sota/monocular-depth-estimation-on-kitti-eigen?p=depth-anything-unleashing-the-power-of-large)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/depth-anything-unleashing-the-power-of-large/semantic-segmentation-on-cityscapes-val)](https://paperswithcode.com/sota/semantic-segmentation-on-cityscapes-val?p=depth-anything-unleashing-the-power-of-large)
+
 ## News
 
 * **2024-01-22:** Paper, project page, code, models, and demo are released.
