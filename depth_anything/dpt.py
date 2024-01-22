@@ -1,8 +1,11 @@
+import argparse
 import torch
 import torch.nn as nn
 
-from .blocks import FeatureFusionBlock, _make_scratch
+from blocks import FeatureFusionBlock, _make_scratch
 import torch.nn.functional as F
+
+from huggingface_hub import PyTorchModelHubMixin, hf_hub_download
 
 
 def _make_fusion_block(features, use_bn, size = None):
@@ -132,7 +135,7 @@ class DPTHead(nn.Module):
         out = self.scratch.output_conv2(out)
         
         return out
-        
+
         
 class DPT_DINOv2(nn.Module):
     def __init__(self, encoder='vitl', features=256, out_channels=[256, 512, 1024, 1024], use_bn=False, use_clstoken=False, localhub=True):
@@ -164,7 +167,48 @@ class DPT_DINOv2(nn.Module):
         return depth.squeeze(1)
 
 
+class DepthAnything(DPT_DINOv2, PyTorchModelHubMixin):
+    def __init__(self, config):
+        super().__init__(**config)
+
+
 if __name__ == '__main__':
-    depth_anything = DPT_DINOv2()
-    depth_anything.load_state_dict(torch.load('checkpoints/depth_anything_dinov2_vitl14.pth'))
-    
+    parser = argparse.ArgumentParser()
+    # Required parameters
+    parser.add_argument(
+        "--size",
+        default="small",
+        type=str,
+        choices=["small", "base", "large"],
+    )
+    args = parser.parse_args()
+    size = args.size
+
+    if size == "small":
+        config = dict(encoder='vits', features=64, out_channels=[48, 96, 192, 384])
+    elif size == "base":
+        config = dict(encoder='vitb', features=128, out_channels=[96, 192, 384, 768])
+    elif size == "large":
+        config = dict(encoder='vitl', features=256, out_channels=[256, 512, 1024, 1024])
+
+    model = DepthAnything(config)
+
+    # load weights
+    size_to_filename = {
+        "small": "depth_anything_vits14.pth",
+        "base": "depth_anything_vitb14.pth",
+        "large": "depth_anything_vitl14.pth",
+    }
+    filename = size_to_filename[size]
+    filepath = hf_hub_download(repo_id="LiheYoung/Depth-Anything", filename=f"checkpoints/{filename}", repo_type="space")
+    state_dict = torch.load(filepath, map_location='cpu')
+    model.load_state_dict(state_dict)
+
+    # save locally
+    # model.save_pretrained("depth_anything_dinov2_vits14")
+
+    # upload to huggingface hub
+    # model.push_to_hub("nielsr/depth_anything_dinov2_vits14", config=config)
+
+    # reload
+    model = DepthAnything.from_pretrained("nielsr/depth_anything_dinov2_vits14")
