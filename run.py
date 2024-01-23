@@ -10,6 +10,7 @@ from tqdm import tqdm
 from depth_anything.dpt import DPT_DINOv2
 from depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
 
+DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -31,11 +32,11 @@ if __name__ == '__main__':
     
     assert args.encoder in ['vits', 'vitb', 'vitl']
     if args.encoder == 'vits':
-        depth_anything = DPT_DINOv2(encoder='vits', features=64, out_channels=[48, 96, 192, 384], localhub=args.localhub).cuda()
+        depth_anything = DPT_DINOv2(encoder='vits', features=64, out_channels=[48, 96, 192, 384], localhub=args.localhub).to(DEVICE)
     elif args.encoder == 'vitb':
-        depth_anything = DPT_DINOv2(encoder='vitb', features=128, out_channels=[96, 192, 384, 768], localhub=args.localhub).cuda()
+        depth_anything = DPT_DINOv2(encoder='vitb', features=128, out_channels=[96, 192, 384, 768], localhub=args.localhub).to(DEVICE)
     else:
-        depth_anything = DPT_DINOv2(encoder='vitl', features=256, out_channels=[256, 512, 1024, 1024], localhub=args.localhub).cuda()
+        depth_anything = DPT_DINOv2(encoder='vitl', features=256, out_channels=[256, 512, 1024, 1024], localhub=args.localhub).to(DEVICE)
     
     total_params = sum(param.numel() for param in depth_anything.parameters())
     print('Total parameters: {:.2f}M'.format(total_params / 1e6))
@@ -76,7 +77,7 @@ if __name__ == '__main__':
         h, w = image.shape[:2]
         
         image = transform({'image': image})['image']
-        image = torch.from_numpy(image).unsqueeze(0).cuda()
+        image = torch.from_numpy(image).unsqueeze(0).to(DEVICE)
         
         with torch.no_grad():
             depth = depth_anything(image)
