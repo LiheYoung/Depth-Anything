@@ -7,7 +7,7 @@ import torch.nn.functional as F
 from torchvision.transforms import Compose
 from tqdm import tqdm
 
-from depth_anything.dpt import DPT_DINOv2
+from depth_anything.dpt import DepthAnything
 from depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
 
 
@@ -15,10 +15,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--img-path', type=str)
     parser.add_argument('--outdir', type=str, default='./vis_depth')
-    
-    parser.add_argument('--encoder', type=str, default='vitl')
-    parser.add_argument('--load-from', type=str, required=True)
-    parser.add_argument('--localhub', dest='localhub', action='store_true', default=False)
+    parser.add_argument('--encoder', type=str, default='vitl', choices=['vits', 'vitb', 'vitl'])
     
     args = parser.parse_args()
     
@@ -29,18 +26,12 @@ if __name__ == '__main__':
     font_scale = 1
     font_thickness = 2
     
-    assert args.encoder in ['vits', 'vitb', 'vitl']
-    if args.encoder == 'vits':
-        depth_anything = DPT_DINOv2(encoder='vits', features=64, out_channels=[48, 96, 192, 384], localhub=args.localhub).cuda()
-    elif args.encoder == 'vitb':
-        depth_anything = DPT_DINOv2(encoder='vitb', features=128, out_channels=[96, 192, 384, 768], localhub=args.localhub).cuda()
-    else:
-        depth_anything = DPT_DINOv2(encoder='vitl', features=256, out_channels=[256, 512, 1024, 1024], localhub=args.localhub).cuda()
+    DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
+    
+    depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{}14'.format(args.encoder)).to(DEVICE)
     
     total_params = sum(param.numel() for param in depth_anything.parameters())
     print('Total parameters: {:.2f}M'.format(total_params / 1e6))
-    
-    depth_anything.load_state_dict(torch.load(args.load_from, map_location='cpu'), strict=True)
     
     depth_anything.eval()
     
@@ -76,7 +67,7 @@ if __name__ == '__main__':
         h, w = image.shape[:2]
         
         image = transform({'image': image})['image']
-        image = torch.from_numpy(image).unsqueeze(0).cuda()
+        image = torch.from_numpy(image).unsqueeze(0).to(DEVICE)
         
         with torch.no_grad():
             depth = depth_anything(image)
@@ -109,4 +100,3 @@ if __name__ == '__main__':
         final_result = cv2.vconcat([caption_space, combined_results])
         
         cv2.imwrite(os.path.join(args.outdir, filename[:filename.find('.')] + '_img_depth.png'), final_result)
-        

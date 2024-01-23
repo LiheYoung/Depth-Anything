@@ -59,7 +59,7 @@ We highlight the **best** and *second best* results in **bold** and *italic* res
 
 ## Pre-trained models
 
-We provide three models of varying scales for robust relatve depth estimation:
+We provide three models of varying scales for robust relative depth estimation:
 
 - Depth-Anything-ViT-Small (24.8M)
 
@@ -67,13 +67,17 @@ We provide three models of varying scales for robust relatve depth estimation:
 
 - Depth-Anything-ViT-Large (335.3M)
 
-Download our pre-trained models [here](https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main/checkpoints), and put them under the ``checkpoints`` directory.
+You can easily load our pre-trained models by:
+```python
+from depth_anything.dpt import DepthAnything
+
+encoder = 'vits' # can also be 'vitb' or 'vitl'
+depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{:}14'.format(encoder))
+```
 
 ## Usage 
 
 ### Installation
-
-The setup is very simple. Just make ensure ``torch``, ``torchvision``, and ``cv2`` are supported in your environment.
 
 ```bash
 git clone https://github.com/LiheYoung/Depth-Anything
@@ -84,13 +88,13 @@ pip install -r requirements.txt
 ### Running
 
 ```bash
-python run.py --encoder <vits | vitb | vitl> --load-from <pretrained-model> --img-path <img-directory | single-img | txt-file> --outdir <outdir> --localhub
+python run.py --encoder <vits | vitb | vitl> --img-path <img-directory | single-img | txt-file> --outdir <outdir>
 ```
 For the ``img-path``, you can either 1) point it to an image directory storing all interested images, 2) point it to a single image, or 3) point it to a text file storing all image paths.
 
 For example:
 ```bash
-python run.py --encoder vitl --load-from checkpoints/depth_anything_vitl14.pth --img-path demo_images --outdir depth_visualization --localhub
+python run.py --encoder vitl --img-path demo_images --outdir depth_visualization
 ```
 
 
@@ -112,14 +116,14 @@ If you want to use Depth Anything in your own project, you can simply follow [``
 <summary>Code snippet (note the difference between our data pre-processing and that of MiDaS)</summary>
 
 ```python
-from depth_anything.dpt import DPT_DINOv2
+from depth_anything.dpt import DepthAnything
 from depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
 
 import cv2
 import torch
 
-depth_anything = DPT_DINOv2(encoder='vitl', features=256, out_channels=[256, 512, 1024, 1024], localhub=True)
-depth_anything.load_state_dict(torch.load('checkpoints/depth_anything_vitl14.pth'))
+encoder = 'vits' # can also be 'vitb' or 'vitl'
+depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{:}14'.format(encoder))
 
 transform = Compose([
     Resize(
