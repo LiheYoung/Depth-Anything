@@ -61,17 +61,11 @@ We highlight the **best** and *second best* results in **bold** and *italic* res
 
 We provide three models of varying scales for robust relative depth estimation:
 
-<!-- - Depth-Anything-ViT-Small (24.8M)
-
-- Depth-Anything-ViT-Base (97.5M)
-
-- Depth-Anything-ViT-Large (335.3M) -->
-
-| Model | Params | Inference Time on V100 (ms) | A100 | RTX4090 (TensorRT, see [here](https://github.com/spacewalk01/depth-anything-tensorrt)) |
+| Model | Params | Inference Time on V100 (ms) | A100 | RTX4090 ([TensorRT](https://github.com/spacewalk01/depth-anything-tensorrt)) |
 |:-|-:|:-:|:-:|:-:|
-| Depth-Anything-ViT-Small | 24.8M | 12 | 8 | 3 |
-| Depth-Anything-ViT-Base | 97.5M | 13 | 9 | 6 |
-| Depth-Anything-ViT-Large | 335.3M | 20 | 13 | 12 |
+| Depth-Anything-Small | 24.8M | 12 | 8 | 3 |
+| Depth-Anything-Base | 97.5M | 13 | 9 | 6 |
+| Depth-Anything-Large | 335.3M | 20 | 13 | 12 |
 
 Note that the V100 and A100 inference time (*without TensorRT*) is computed by excluding the pre-processing and post-processing stages, whereas the last column RTX4090 (*with TensorRT*) is computed by including these two stages. See [here]() for details.
 
@@ -86,7 +80,7 @@ depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{:}14'.
 ### No network connection, cannot load these models?
 
 <details>
-<summary>Click here to see solutions</summary>
+<summary>Click here for solutions</summary>
 
 - First, please manually download our models (both config and checkpoints files) from here: [depth-anything-small](https://huggingface.co/LiheYoung/depth_anything_vits14), [depth-anything-base](https://huggingface.co/LiheYoung/depth_anything_vitb14), and [depth-anything-large](https://huggingface.co/LiheYoung/depth_anything_vitl14).
 
