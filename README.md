@@ -62,11 +62,13 @@ We highlight the **best** and *second best* results in **bold** and *italic* res
 
 We provide three models of varying scales for robust relative depth estimation:
 
-- Depth-Anything-ViT-Small (24.8M)
+| Model | Params | Inference Time on V100 (ms) | A100 | RTX4090 ([TensorRT](https://github.com/spacewalk01/depth-anything-tensorrt)) |
+|:-|-:|:-:|:-:|:-:|
+| Depth-Anything-Small | 24.8M | 12 | 8 | 3 |
+| Depth-Anything-Base | 97.5M | 13 | 9 | 6 |
+| Depth-Anything-Large | 335.3M | 20 | 13 | 12 |
 
-- Depth-Anything-ViT-Base (97.5M)
-
-- Depth-Anything-ViT-Large (335.3M)
+Note that the V100 and A100 inference time (*without TensorRT*) is computed by excluding the pre-processing and post-processing stages, whereas the last column RTX4090 (*with TensorRT*) is computed by including these two stages. See [here]() for details.
 
 You can easily load our pre-trained models by:
 ```python
@@ -75,6 +77,24 @@ from depth_anything.dpt import DepthAnything
 encoder = 'vits' # can also be 'vitb' or 'vitl'
 depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{:}14'.format(encoder))
 ```
+
+### No network connection, cannot load these models?
+
+<details>
+<summary>Click here for solutions</summary>
+
+- First, please manually download our models (both config and checkpoints files) from here: [depth-anything-small](https://huggingface.co/LiheYoung/depth_anything_vits14), [depth-anything-base](https://huggingface.co/LiheYoung/depth_anything_vitb14), and [depth-anything-large](https://huggingface.co/LiheYoung/depth_anything_vitl14).
+
+- Second, upload the folder which contains config and checkpoint files to your remote server.
+
+- Lastly, load the model locally by:
+```python
+# suppose the config and checkpoint files are stored under the folder checkpoints/depth_anything_vitb14
+depth_anything = DepthAnything.from_pretrained('checkpoints/depth_anything_vitb14', local_files_only=True)
+```
+
+</details>
+
 
 ## Usage 
 
@@ -95,7 +115,7 @@ For the ``img-path``, you can either 1) point it to an image directory storing a
 
 For example:
 ```bash
-python run.py --encoder vitl --img-path demo_images --outdir depth_visualization
+python run.py --encoder vitl --img-path assets/examples --outdir depth_visualization
 ```
 
 
@@ -149,6 +169,17 @@ depth = depth_anything(image)
 ```
 </details>
 
+## Community Support
+
+**We sincerely appreciate all the extentions built on our Depth Anything from the community. Thank you a lot!**
+
+Here we list the extensions we have found:
+- Depth Anything ONNX: https://github.com/fabio-sim/Depth-Anything-ONNX
+- Depth Anything TensorRT: https://github.com/spacewalk01/depth-anything-tensorrt
+- Depth Anything in ControlNet WebUI: https://github.com/Mikubill/sd-webui-controlnet
+- Depth Anything in X-AnyLabeling: https://github.com/CVHub520/X-AnyLabeling
+
+If you have your amazing projects supporting or improving (*e.g.*, speed) Depth Anything, please feel free to drop an issue. We will add them here.
 
 ## Citation
 
