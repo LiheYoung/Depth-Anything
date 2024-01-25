@@ -176,7 +176,7 @@ depth = depth_anything(image)
 ```
 </details>
 
-### Do not want to manually define image pre-processing and download our model definition files?
+### Do not want to define image pre-processing and download our model definition files?
 
 Easily use Depth Anything through ``transformers``! Please refer to [these instructions](https://huggingface.co/LiheYoung/depth-anything-small-hf) (credit to [@niels](https://huggingface.co/nielsr)).
 
