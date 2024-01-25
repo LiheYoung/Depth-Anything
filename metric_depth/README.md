@@ -38,10 +38,9 @@ Outdoor: KITTI $\rightarrow$ Virtual KITTI 2 and DIODE Outdoor
 
 
 
-## Pre-trained models
+## Pre-trained metric depth estimation models
 
-We provide two pre-trained models ([download](https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main/checkpoints_metric_depth)), one for *indoor* metric depth estimation trained on NYUv2, and the other for *outdoor* metric depth estimation trained on KITTI. 
-
+We provide [two pre-trained models](https://huggingface.co/spaces/LiheYoung/Depth-Anything/tree/main/checkpoints_metric_depth), one for *indoor* metric depth estimation trained on NYUv2, and the other for *outdoor* metric depth estimation trained on KITTI. 
 
 ## Installation
 
@@ -67,6 +66,8 @@ python evaluate.py -m zoedepth --pretrained_resource="local::./checkpoints/depth
 ```
 
 ## Training
+
+Please first download our Depth Anything pre-trained models [here](https://huggingface.co/spaces/LiheYoung/Depth-Anything/blob/main/checkpoints/depth_anything_vitl14.pth), and put it under the ``checkpoints`` directory.
 
 ```bash
 python train_mono.py -m zoedepth -d <nyu | kitti> --pretrained_resource=""
