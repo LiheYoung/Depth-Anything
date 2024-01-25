@@ -28,12 +28,10 @@ if __name__ == '__main__':
     
     DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
     
-    depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{}14'.format(args.encoder)).to(DEVICE)
+    depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{}14'.format(args.encoder)).to(DEVICE).eval()
     
     total_params = sum(param.numel() for param in depth_anything.parameters())
     print('Total parameters: {:.2f}M'.format(total_params / 1e6))
-    
-    depth_anything.eval()
     
     transform = Compose([
         Resize(
@@ -57,8 +55,10 @@ if __name__ == '__main__':
             filenames = [args.img_path]
     else:
         filenames = os.listdir(args.img_path)
-        filenames = [os.path.join(args.img_path, filename) for filename in filenames]
+        filenames = [os.path.join(args.img_path, filename) for filename in filenames if not filename.startswith('.')]
         filenames.sort()
+    
+    os.makedirs(args.outdir, exist_ok=True)
     
     for filename in tqdm(filenames):
         raw_image = cv2.imread(filename)
@@ -78,9 +78,6 @@ if __name__ == '__main__':
         depth = depth.cpu().numpy().astype(np.uint8)
         depth_color = cv2.applyColorMap(depth, cv2.COLORMAP_INFERNO)
         
-        os.makedirs(args.outdir, exist_ok=True)
-        filename = os.path.basename(filename)
-        
         split_region = np.ones((raw_image.shape[0], margin_width, 3), dtype=np.uint8) * 255
         combined_results = cv2.hconcat([raw_image, split_region, depth_color])
         
@@ -99,4 +96,5 @@ if __name__ == '__main__':
         
         final_result = cv2.vconcat([caption_space, combined_results])
         
-        cv2.imwrite(os.path.join(args.outdir, filename[:filename.find('.')] + '_img_depth.png'), final_result)
+        filename = os.path.basename(filename)
+        cv2.imwrite(os.path.join(args.outdir, filename[:filename.rfind('.')] + '_img_depth.png'), final_result)
