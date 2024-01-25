@@ -109,16 +109,21 @@ pip install -r requirements.txt
 ### Running
 
 ```bash
-python run.py --encoder <vits | vitb | vitl> --img-path <img-directory | single-img | txt-file> --outdir <outdir>
+python run.py --encoder <vits | vitb | vitl> --img-path <img-directory | single-img | txt-file> --outdir <outdir> [--save_depth_img]
 ```
 For the ``img-path``, you can either 1) point it to an image directory storing all interested images, 2) point it to a single image, or 3) point it to a text file storing all image paths.
 
-For example:
+Example 1:
 ```bash
 python run.py --encoder vitl --img-path assets/examples --outdir depth_visualization
 ```
 
+Example 2:
 
+If you just want to save the depth image results.
+```bash
+python run.py --encoder vitl --img-path assets/examples --outdir depth_visualization --save_depth_img
+```
 ### Gradio demo
 
 To use our gradio demo locally:
