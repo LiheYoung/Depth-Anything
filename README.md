@@ -212,6 +212,8 @@ If you have your amazing projects supporting or improving (*e.g.*, speed) Depth 
 
 We would like to express our deepest gratitude to [AK(@_akhaliq)](https://twitter.com/_akhaliq) and the awesome HuggingFace team ([@niels](https://huggingface.co/nielsr), [@hysts](https://huggingface.co/hysts), and [@yuvraj](https://huggingface.co/ysharma)) for helping improve the online demo and build the HF models.
 
+Besides, we thank the [MagicEdit](https://magic-edit.github.io/) team for providing some video examples for video depth estimation, and [Tiancheng Shen](https://scholar.google.com/citations?user=iRY1YVoAAAAJ) for evaluating the depth maps with MagicEdit.
+
 ## Citation
 
 If you find this project useful, please consider citing:
