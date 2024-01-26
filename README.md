@@ -19,7 +19,7 @@ This work presents Depth Anything, a highly practical solution for robust monocu
 
 ## News
 
-* **2024-01-25:** Support [video depth visualization](./run_video.py).
+* **2024-01-25:** Support [video depth visualization](./run_video.py). Our [online demo](https://huggingface.co/spaces/LiheYoung/Depth-Anything) also supports video input.
 * **2024-01-23:** The new ControlNet based on Depth Anything is integrated into [ControlNet WebUI](https://github.com/Mikubill/sd-webui-controlnet) and [ComfyUI's ControlNet](https://github.com/Fannovel16/comfyui_controlnet_aux).
 * **2024-01-23:** Depth Anything [ONNX](https://github.com/fabio-sim/Depth-Anything-ONNX) and [TensorRT](https://github.com/spacewalk01/depth-anything-tensorrt) versions are supported.
 * **2024-01-22:** Paper, project page, code, models, and demo ([HuggingFace](https://huggingface.co/spaces/LiheYoung/Depth-Anything), [OpenXLab](https://openxlab.org.cn/apps/detail/yyfan/depth_anything)) are released.
@@ -38,7 +38,7 @@ This work presents Depth Anything, a highly practical solution for robust monocu
 
 - **Better depth-conditioned ControlNet**
 
-    We re-train **a better depth-conditioned ControlNet** based on Depth Anything. It offers more precise synthesis than the previous MiDaS-based ControlNet. Please refer [here](./controlnet/) for details. You can also use our new ControlNet based on Depth Anything in [ControlNet WebUI](https://github.com/Mikubill/sd-webui-controlnet).
+    We re-train **a better depth-conditioned ControlNet** based on Depth Anything. It offers more precise synthesis than the previous MiDaS-based ControlNet. Please refer [here](./controlnet/) for details. You can also use our new ControlNet based on Depth Anything in [ControlNet WebUI](https://github.com/Mikubill/sd-webui-controlnet) or [ComfyUI's ControlNet](https://github.com/Fannovel16/comfyui_controlnet_aux).
 
 - **Downstream high-level scene understanding**
 
@@ -176,7 +176,7 @@ depth = depth_anything(image)
 ```
 </details>
 
-### Do not want to define image pre-processing and download our model definition files?
+### Do not want to define image pre-processing or download model definition files?
 
 Easily use Depth Anything through ``transformers``! Please refer to [these instructions](https://huggingface.co/LiheYoung/depth-anything-small-hf) (credit to [@niels](https://huggingface.co/nielsr)).
 
