@@ -81,6 +81,8 @@ encoder = 'vits' # can also be 'vitb' or 'vitl'
 depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{:}14'.format(encoder))
 ```
 
+Depth Anything is also supported in ``transformers``. You can use it for depth prediction within [3 lines of code](https://huggingface.co/docs/transformers/main/model_doc/depth_anything) (credit to [@niels](https://huggingface.co/nielsr)).
+
 ### No network connection, cannot load these models?
 
 <details>
@@ -178,7 +180,7 @@ depth = depth_anything(image)
 
 ### Do not want to define image pre-processing or download model definition files?
 
-Easily use Depth Anything through ``transformers``! Please refer to [these instructions](https://huggingface.co/LiheYoung/depth-anything-small-hf) (credit to [@niels](https://huggingface.co/nielsr)).
+Easily use Depth Anything through ``transformers`` within 3 lines of code! Please refer to [these instructions](https://huggingface.co/docs/transformers/main/model_doc/depth_anything) (credit to [@niels](https://huggingface.co/nielsr)).
 
 <details>
 <summary>Click here for a brief demo:</summary>
