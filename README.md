@@ -128,7 +128,7 @@ python run.py --encoder vitl --img-path assets/examples --outdir depth_vis
 python run_video.py --encoder vitl --video-path assets/examples_video --outdir video_depth_vis
 ```
 
-### Gradio demo
+### Gradio demo <a href='https://github.com/gradio-app/gradio'><img src='https://img.shields.io/github/stars/gradio-app/gradio'></a> 
 
 To use our gradio demo locally:
 
@@ -206,6 +206,8 @@ Here we list the extensions we have found:
 - Depth Anything in ComfyUI's ControlNet: https://github.com/Fannovel16/comfyui_controlnet_aux
 - Depth Anything in X-AnyLabeling: https://github.com/CVHub520/X-AnyLabeling
 - Depth Anything in OpenXLab: https://openxlab.org.cn/apps/detail/yyfan/depth_anything
+- Depth Anything in Transformers.js: https://huggingface.co/spaces/Xenova/depth-anything-web
+- Depth Anything in OpenVINO: https://github.com/openvinotoolkit/openvino_notebooks/tree/main/notebooks/280-depth-anything
 
 If you have your amazing projects supporting or improving (*e.g.*, speed) Depth Anything, please feel free to drop an issue. We will add them here.
 
