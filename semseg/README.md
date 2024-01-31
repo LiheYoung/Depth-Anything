@@ -46,8 +46,8 @@ Please refer to [MMSegmentation](https://github.com/open-mmlab/mmsegmentation/bl
 After installation:
 - move our [config/depth_anything](./config/depth_anything/) to mmseg's [config](https://github.com/open-mmlab/mmsegmentation/tree/main/configs)
 - move our [dinov2.py](./dinov2.py) to mmseg's [backbones](https://github.com/open-mmlab/mmsegmentation/tree/main/mmseg/models/backbones)
-- add DINOv2 in mmseg's [models/backbones/__init__.py](https://github.com/open-mmlab/mmsegmentation/blob/main/mmseg/models/backbones/__init__.py)
-
+- add DINOv2 in mmseg's [models/backbones/\_\_init\_\_.py](https://github.com/open-mmlab/mmsegmentation/blob/main/mmseg/models/backbones/__init__.py)
+- download our provided [torchhub](https://github.com/LiheYoung/Depth-Anything/tree/main/torchhub) directory and put it at the root of your working directory
 
 For training or inference with our pre-trained models, please refer to MMSegmentation [instructions](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/user_guides/4_train_test.md).
 
