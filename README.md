@@ -151,6 +151,7 @@ from depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
 
 import cv2
 import torch
+from torchvision.transforms import Compose
 
 encoder = 'vits' # can also be 'vitb' or 'vitl'
 depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{:}14'.format(encoder)).eval()
