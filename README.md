@@ -19,6 +19,7 @@ This work presents Depth Anything, a highly practical solution for robust monocu
 
 ## News
 
+* **2024-02-02:** Depth Anything serves as the default depth processor for [InstantID](https://github.com/InstantID/InstantID) and [InvokeAI](https://github.com/invoke-ai/InvokeAI/releases/tag/v3.6.1).
 * **2024-01-25:** Support [video depth visualization](./run_video.py).
 * **2024-01-23:** The new ControlNet based on Depth Anything is integrated into [ControlNet WebUI](https://github.com/Mikubill/sd-webui-controlnet) and [ComfyUI's ControlNet](https://github.com/Fannovel16/comfyui_controlnet_aux).
 * **2024-01-23:** Depth Anything [ONNX](https://github.com/fabio-sim/Depth-Anything-ONNX) and [TensorRT](https://github.com/spacewalk01/depth-anything-tensorrt) versions are supported.
@@ -151,6 +152,7 @@ from depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
 
 import cv2
 import torch
+from torchvision.transforms import Compose
 
 encoder = 'vits' # can also be 'vitb' or 'vitl'
 depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{:}14'.format(encoder)).eval()
