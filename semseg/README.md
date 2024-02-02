@@ -37,6 +37,7 @@ Note that our results are obtained *without* Mapillary pre-training.
 - [Cityscapes-ViT-L-mIoU-86.4](https://huggingface.co/spaces/LiheYoung/Depth-Anything/blob/main/checkpoints_semseg/cityscapes_vitl_mIoU_86.4.pth)
 - [ADE20K-ViT-L-mIoU-59.4](https://huggingface.co/spaces/LiheYoung/Depth-Anything/blob/main/checkpoints_semseg/ade20k_vitl_mIoU_59.4.pth)
 
+**Note:** If you want to reproduce the training process, please 1) download the [Depth Anything pre-trained model](https://huggingface.co/spaces/LiheYoung/Depth-Anything/blob/main/checkpoints/depth_anything_vitl14.pth) (to initialize the encoder) and 2) put it under the ``checkpoints`` folder.
 
 
 ## Installation

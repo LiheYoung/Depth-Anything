@@ -20,7 +20,7 @@ model = dict(
         type='DINOv2',
         version='large',
         freeze=False,
-        load_from='../checkpoints/depth_anything_vitl14.pth'),
+        load_from='./checkpoints/depth_anything_vitl14.pth'),
     neck=dict(type='Feature2Pyramid', embed_dim=1024, rescales=[4, 2, 1, 0.5]),
     decode_head=dict(
         type='Mask2FormerHead',

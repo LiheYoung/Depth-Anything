@@ -82,7 +82,7 @@ encoder = 'vits' # can also be 'vitb' or 'vitl'
 depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{:}14'.format(encoder))
 ```
 
-Depth Anything is also supported in ``transformers``. You can use it for depth prediction within [3 lines of code](https://huggingface.co/docs/transformers/main/model_doc/depth_anything) (credit to [@niels](https://huggingface.co/nielsr)).
+Depth Anything is also supported in [``transformers``](https://github.com/huggingface/transformers). You can use it for depth prediction within [3 lines of code](https://huggingface.co/docs/transformers/main/model_doc/depth_anything) (credit to [@niels](https://huggingface.co/nielsr)).
 
 ### No network connection, cannot load these models?
 
@@ -115,9 +115,12 @@ pip install -r requirements.txt
 ### Running
 
 ```bash
-python run.py --encoder <vits | vitb | vitl> --img-path <img-directory | single-img | txt-file> --outdir <outdir>
+python run.py --encoder <vits | vitb | vitl> --img-path <img-directory | single-img | txt-file> --outdir <outdir> [--pred-only] [--grayscale]
 ```
-For the ``img-path``, you can either 1) point it to an image directory storing all interested images, 2) point it to a single image, or 3) point it to a text file storing all image paths.
+Arguments:
+- ``--img-path``: you can either 1) point it to an image directory storing all interested images, 2) point it to a single image, or 3) point it to a text file storing all image paths.
+- ``--pred-only`` is set to save the predicted depth map only. Without it, by default, we visualize both image and its depth map side by side.
+- ``--grayscale`` is set to save the grayscale depth map. Without it, by default, we apply a color palette to the depth map.
 
 For example:
 ```bash
@@ -182,8 +185,12 @@ depth = depth_anything(image)
 
 ### Do not want to define image pre-processing or download model definition files?
 
-Easily use Depth Anything through ``transformers`` within 3 lines of code! Please refer to [these instructions](https://huggingface.co/docs/transformers/main/model_doc/depth_anything) (credit to [@niels](https://huggingface.co/nielsr)).
+Easily use Depth Anything through [``transformers``](https://github.com/huggingface/transformers) within 3 lines of code! Please refer to [these instructions](https://huggingface.co/docs/transformers/main/model_doc/depth_anything) (credit to [@niels](https://huggingface.co/nielsr)).
 
+**Note:** If you encounter ``KeyError: 'depth_anything'``, please install the latest ``transformers`` from source:
+```bash
+pip install git+https://github.com/huggingface/transformers.git
+```
 <details>
 <summary>Click here for a brief demo:</summary>
 
