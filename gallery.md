@@ -1,4 +1,4 @@
-# $Depth$ $Anything$ ${\color{crimson}G\color{coral}a\color{royalblue}l\color{olive}l\color{teal}a\color{navy}r\color{plum}y}$
+# $Depth$ $Anything$ ${\color{crimson}G\color{coral}a\color{royalblue}l\color{olive}l\color{teal}e\color{navy}r\color{plum}y}$
 
 
 
@@ -114,6 +114,8 @@ You can click on the titles below to be directed to corresponding source pages.
 
 ## Video
 
+The videos may be slow to load. Please wait a moment.
+
 ### [Racing game](https://twitter.com/i/status/1750683014152040853)
 
 <img src="assets/gallery/racing_car.gif" width="80%"/>
@@ -128,6 +130,8 @@ You can click on the titles below to be directed to corresponding source pages.
 
 
 ## 3D
+
+The videos may be slow to load. Please wait a moment.
 
 ### [3D visualization](https://twitter.com/victormustar/status/1753008143469093212)
 
