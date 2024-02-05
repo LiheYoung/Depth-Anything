@@ -130,7 +130,7 @@ The videos may be slow to load. Please wait a moment.
 
 ### [nuScenes dataset](https://github.com/scepter914/DepthAnything-ROS)
 
-<img src="assets/gallery/nuscenes_demo.gif" width="60%"/>
+<img src="assets/gallery/nuscenes_demo.gif" width="80%"/>
 
 ## 3D
 
