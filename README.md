@@ -21,13 +21,15 @@ This work presents Depth Anything, a highly practical solution for robust monocu
 
 * **2024-02-05:** [Depth Anything Gallery](./gallery.md) is released. Thank all the users!
 * **2024-02-02:** Depth Anything serves as the default depth processor for [InstantID](https://github.com/InstantID/InstantID) and [InvokeAI](https://github.com/invoke-ai/InvokeAI/releases/tag/v3.6.1).
-* **2024-01-25:** Support [video depth visualization](./run_video.py).
+* **2024-01-25:** Support [video depth visualization](./run_video.py). An [online demo for video](https://huggingface.co/spaces/JohanDL/Depth-Anything-Video) is also available.
 * **2024-01-23:** The new ControlNet based on Depth Anything is integrated into [ControlNet WebUI](https://github.com/Mikubill/sd-webui-controlnet) and [ComfyUI's ControlNet](https://github.com/Fannovel16/comfyui_controlnet_aux).
 * **2024-01-23:** Depth Anything [ONNX](https://github.com/fabio-sim/Depth-Anything-ONNX) and [TensorRT](https://github.com/spacewalk01/depth-anything-tensorrt) versions are supported.
 * **2024-01-22:** Paper, project page, code, models, and demo ([HuggingFace](https://huggingface.co/spaces/LiheYoung/Depth-Anything), [OpenXLab](https://openxlab.org.cn/apps/detail/yyfan/depth_anything)) are released.
 
 
 ## Features of Depth Anything
+
+***If you need other features, please first check [existing community supports](#community-support).***
 
 - **Relative depth estimation**:
     
@@ -188,7 +190,7 @@ depth = depth_anything(image)
 
 Easily use Depth Anything through [``transformers``](https://github.com/huggingface/transformers) within 3 lines of code! Please refer to [these instructions](https://huggingface.co/docs/transformers/main/model_doc/depth_anything) (credit to [@niels](https://huggingface.co/nielsr)).
 
-**Note:** If you encounter ``KeyError: 'depth_anything'``, please install the latest ``transformers`` from source:
+**Note:** If you encounter ``KeyError: 'depth_anything'``, please install the latest [``transformers``](https://github.com/huggingface/transformers) from source:
 ```bash
 pip install git+https://github.com/huggingface/transformers.git
 ```
@@ -210,13 +212,17 @@ depth = pipe(image)["depth"]
 **We sincerely appreciate all the extentions built on our Depth Anything from the community. Thank you a lot!**
 
 Here we list the extensions we have found:
+- Depth Anything TensorRT: 
+    - https://github.com/spacewalk01/depth-anything-tensorrt
+    - https://github.com/thinvy/DepthAnythingTensorrtDeploy
+    - https://github.com/daniel89710/trt-depth-anything
 - Depth Anything ONNX: https://github.com/fabio-sim/Depth-Anything-ONNX
-- Depth Anything TensorRT: https://github.com/spacewalk01/depth-anything-tensorrt
+- Depth Anything in Transformers.js (3D visualization): https://huggingface.co/spaces/Xenova/depth-anything-web
+- Depth Anything for video (online demo): https://huggingface.co/spaces/JohanDL/Depth-Anything-Video
 - Depth Anything in ControlNet WebUI: https://github.com/Mikubill/sd-webui-controlnet
 - Depth Anything in ComfyUI's ControlNet: https://github.com/Fannovel16/comfyui_controlnet_aux
 - Depth Anything in X-AnyLabeling: https://github.com/CVHub520/X-AnyLabeling
 - Depth Anything in OpenXLab: https://openxlab.org.cn/apps/detail/yyfan/depth_anything
-- Depth Anything in Transformers.js: https://huggingface.co/spaces/Xenova/depth-anything-web
 - Depth Anything in OpenVINO: https://github.com/openvinotoolkit/openvino_notebooks/tree/main/notebooks/280-depth-anything
 
 If you have your amazing projects supporting or improving (*e.g.*, speed) Depth Anything, please feel free to drop an issue. We will add them here.

@@ -114,7 +114,9 @@ You can click on the titles below to be directed to corresponding source pages.
 
 ## Video
 
-The videos may be slow to load. Please wait a moment.
+For more online showcases, please refer to https://twitter.com/WilliamLamkin/status/1755623301907460582.
+
+The videos below may be slow to load. Please wait a moment.
 
 ### [Racing game](https://twitter.com/i/status/1750683014152040853)
 
@@ -124,6 +126,10 @@ The videos may be slow to load. Please wait a moment.
 
 <img src="assets/gallery/building.gif" width="80%"/>
 
+### [nuScenes](https://github.com/scepter914/DepthAnything-ROS)
+
+<img src="assets/gallery/nuscenes.gif" width="80%"/>
+
 ### [Indoor moving](https://twitter.com/PINTO03091/status/1750162506453041437)
 
 <img src="assets/gallery/indoor_moving.gif" width="40%"/>
@@ -131,7 +137,7 @@ The videos may be slow to load. Please wait a moment.
 
 ## 3D
 
-The videos may be slow to load. Please wait a moment.
+The videos below may be slow to load. Please wait a moment.
 
 ### [3D visualization](https://twitter.com/victormustar/status/1753008143469093212)
 
