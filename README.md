@@ -224,6 +224,7 @@ Here we list the extensions we have found:
 - Depth Anything in X-AnyLabeling: https://github.com/CVHub520/X-AnyLabeling
 - Depth Anything in OpenXLab: https://openxlab.org.cn/apps/detail/yyfan/depth_anything
 - Depth Anything in OpenVINO: https://github.com/openvinotoolkit/openvino_notebooks/tree/main/notebooks/280-depth-anything
+- Depth Anything in Android: https://github.com/shubham0204/Depth-Anything-Android
 
 If you have your amazing projects supporting or improving (*e.g.*, speed) Depth Anything, please feel free to drop an issue. We will add them here.
 
