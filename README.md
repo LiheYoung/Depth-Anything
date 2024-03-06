@@ -99,7 +99,7 @@ Depth Anything is also supported in [``transformers``](https://github.com/huggin
 
 - Lastly, load the model locally:
 ```python
-from depth_anything.dpt import DepthAnything
+from depth_anything.dpt import DPT_DINOv2
 
 model_configs = {
     'vitl': {'encoder': 'vitl', 'features': 256, 'out_channels': [256, 512, 1024, 1024]},
@@ -108,7 +108,8 @@ model_configs = {
 }
 
 encoder = 'vitl' # or 'vitb', 'vits'
-depth_anything = DepthAnything.from_pretrained(model_configs[encoder])
+model_configs = model_configs[encoder]
+depth_anything = DPT_DINOv2(encoder=model_configs['encoder'], features=model_configs['features'], out_channels=model_configs['out_channels']).to(DEVICE).eval()
 depth_anything.load_state_dict(torch.load(f'./checkpoints/depth_anything_{encoder}14.pth'))
 ```
 Note that in this locally loading manner, you also do not have to install the ``huggingface_hub`` package. In this way, please feel free to delete this [line](https://github.com/LiheYoung/Depth-Anything/blob/e7ef4b4b7a0afd8a05ce9564f04c1e5b68268516/depth_anything/dpt.py#L5) and the ``PyTorchModelHubMixin`` in this [line](https://github.com/LiheYoung/Depth-Anything/blob/e7ef4b4b7a0afd8a05ce9564f04c1e5b68268516/depth_anything/dpt.py#L169).
