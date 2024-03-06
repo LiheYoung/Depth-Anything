@@ -7,6 +7,8 @@
 
 <sup>+</sup>corresponding authors
 
+**CVPR 2024**
+
 <a href="https://arxiv.org/abs/2401.10891"><img src='https://img.shields.io/badge/arXiv-Depth Anything-red' alt='Paper PDF'></a>
 <a href='https://depth-anything.github.io'><img src='https://img.shields.io/badge/Project_Page-Depth Anything-green' alt='Project Page'></a>
 <a href='https://huggingface.co/spaces/LiheYoung/Depth-Anything'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue'></a>
@@ -108,7 +110,7 @@ model_configs = {
 }
 
 encoder = 'vitl' # or 'vitb', 'vits'
-depth_anything = DepthAnything.from_pretrained(model_configs[encoder])
+depth_anything = DepthAnything(model_configs[encoder])
 depth_anything.load_state_dict(torch.load(f'./checkpoints/depth_anything_{encoder}14.pth'))
 ```
 Note that in this locally loading manner, you also do not have to install the ``huggingface_hub`` package. In this way, please feel free to delete this [line](https://github.com/LiheYoung/Depth-Anything/blob/e7ef4b4b7a0afd8a05ce9564f04c1e5b68268516/depth_anything/dpt.py#L5) and the ``PyTorchModelHubMixin`` in this [line](https://github.com/LiheYoung/Depth-Anything/blob/e7ef4b4b7a0afd8a05ce9564f04c1e5b68268516/depth_anything/dpt.py#L169).
@@ -234,6 +236,15 @@ Here we list the extensions we have found:
 - Depth Anything in X-AnyLabeling: https://github.com/CVHub520/X-AnyLabeling
 - Depth Anything in OpenXLab: https://openxlab.org.cn/apps/detail/yyfan/depth_anything
 - Depth Anything in OpenVINO: https://github.com/openvinotoolkit/openvino_notebooks/tree/main/notebooks/280-depth-anything
+- Depth Anything ROS:
+    - https://github.com/scepter914/DepthAnything-ROS
+    - https://github.com/polatztrk/depth_anything_ros
+- Depth Anything Android:
+    - https://github.com/FeiGeChuanShu/ncnn-android-depth_anything
+    - https://github.com/shubham0204/Depth-Anything-Android
+- Depth Anything in TouchDesigner: https://github.com/olegchomp/TDDepthAnything
+- LearnOpenCV research article on Depth Anything: https://learnopencv.com/depth-anything
+     
 
 If you have your amazing projects supporting or improving (*e.g.*, speed) Depth Anything, please feel free to drop an issue. We will add them here.
 
