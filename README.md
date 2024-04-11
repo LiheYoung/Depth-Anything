@@ -1,11 +1,11 @@
 <div align="center">
 <h2>Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data</h2>
 
-[**Lihe Yang**](https://liheyoung.github.io/)<sup>1</sup> · [**Bingyi Kang**](https://scholar.google.com/citations?user=NmHgX-wAAAAJ)<sup>2+</sup> · [**Zilong Huang**](http://speedinghzl.github.io/)<sup>2</sup> · [**Xiaogang Xu**](https://xiaogang00.github.io/)<sup>3,4</sup> · [**Jiashi Feng**](https://sites.google.com/site/jshfeng/)<sup>2</sup> · [**Hengshuang Zhao**](https://hszhao.github.io/)<sup>1+</sup>
+[**Lihe Yang**](https://liheyoung.github.io/)<sup>1</sup> · [**Bingyi Kang**](https://scholar.google.com/citations?user=NmHgX-wAAAAJ)<sup>2&dagger;</sup> · [**Zilong Huang**](http://speedinghzl.github.io/)<sup>2</sup> · [**Xiaogang Xu**](https://xiaogang00.github.io/)<sup>3,4</sup> · [**Jiashi Feng**](https://sites.google.com/site/jshfeng/)<sup>2</sup> · [**Hengshuang Zhao**](https://hszhao.github.io/)<sup>1*</sup>
 
-<sup>1</sup>The University of Hong Kong · <sup>2</sup>TikTok · <sup>3</sup>Zhejiang Lab · <sup>4</sup>Zhejiang University
+<sup>1</sup>HKU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup>2</sup>TikTok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup>3</sup>CUHK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup>4</sup>ZJU
 
-<sup>+</sup>corresponding authors
+&dagger;project lead&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*corresponding author
 
 **CVPR 2024**
 
@@ -244,6 +244,7 @@ Here we list the extensions we have found:
     - https://github.com/shubham0204/Depth-Anything-Android
 - Depth Anything in TouchDesigner: https://github.com/olegchomp/TDDepthAnything
 - LearnOpenCV research article on Depth Anything: https://learnopencv.com/depth-anything
+- Learn more about the DPT architecture we used: https://github.com/heyoeyo/muggled_dpt
      
 
 If you have your amazing projects supporting or improving (*e.g.*, speed) Depth Anything, please feel free to drop an issue. We will add them here.
