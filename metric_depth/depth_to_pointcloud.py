@@ -37,11 +37,7 @@ def process_images(model):
             original_width, original_height = color_image.size
             image_tensor = transforms.ToTensor()(color_image).unsqueeze(0).to('cuda' if torch.cuda.is_available() else 'cpu')
 
-            pred = model(image_tensor, dataset=DATASET)
-            if isinstance(pred, dict):
-                pred = pred.get('metric_depth', pred.get('out'))
-            elif isinstance(pred, (list, tuple)):
-                pred = pred[-1]
+            pred = model.infer(image_tensor)
             pred = pred.squeeze().detach().cpu().numpy()
 
             # Resize color image and depth to final size
