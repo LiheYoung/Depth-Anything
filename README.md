@@ -224,6 +224,8 @@ depth = pipe(image)["depth"]
 **We sincerely appreciate all the extensions built on our Depth Anything from the community. Thank you a lot!**
 
 Here we list the extensions we have found:
+- Depth Anything one-click deployment on Jetson Orin with WebUI by Seeed Studio team: 
+    - https://github.com/Seeed-Projects/jetson-examples/blob/main/reComputer/scripts/depth-anything/README.md
 - Depth Anything TensorRT: 
     - https://github.com/spacewalk01/depth-anything-tensorrt
     - https://github.com/thinvy/DepthAnythingTensorrtDeploy
