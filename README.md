@@ -19,8 +19,13 @@ This work presents Depth Anything, a highly practical solution for robust monocu
 
 ![teaser](assets/teaser.png)
 
+<div align="center">
+    <a href="https://github.com/DepthAnything/Depth-Anything-V2">Try our latest Depth Anything V2 models!</a>
+</div>
+
 ## News
 
+* **2024-06-14:** [Depth Anything V2](https://github.com/DepthAnything/Depth-Anything-V2) is released.
 * **2024-02-27:** Depth Anything is accepted by CVPR 2024.
 * **2024-02-05:** [Depth Anything Gallery](./gallery.md) is released. Thank all the users!
 * **2024-02-02:** Depth Anything serves as the default depth processor for [InstantID](https://github.com/InstantID/InstantID) and [InvokeAI](https://github.com/invoke-ai/InvokeAI/releases/tag/v3.6.1).
