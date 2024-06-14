@@ -20,7 +20,7 @@ This work presents Depth Anything, a highly practical solution for robust monocu
 ![teaser](assets/teaser.png)
 
 <div align="center">
-    <a href="https://github.com/DepthAnything/Depth-Anything-V2">Try our latest Depth Anything V2 models!</a>
+    <a href="https://github.com/DepthAnything/Depth-Anything-V2"><b>Try our latest Depth Anything V2 models!</b></a>
 </div>
 
 ## News
