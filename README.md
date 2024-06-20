@@ -250,7 +250,8 @@ Here we list the extensions we have found:
 - Depth Anything in TouchDesigner: https://github.com/olegchomp/TDDepthAnything
 - LearnOpenCV research article on Depth Anything: https://learnopencv.com/depth-anything
 - Learn more about the DPT architecture we used: https://github.com/heyoeyo/muggled_dpt
-     
+- Depth Anything in NVIDIA Jetson Orin: https://github.com/ZhuYaoHui1998/jetson-examples/blob/main/reComputer/scripts/depth-anything
+
 
 If you have your amazing projects supporting or improving (*e.g.*, speed) Depth Anything, please feel free to drop an issue. We will add them here.
 
