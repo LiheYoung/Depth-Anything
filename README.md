@@ -20,8 +20,7 @@ This work presents Depth Anything, a highly practical solution for robust monocu
 ![teaser](assets/teaser.png)
 
 <div align="center">
-    <a href="https://huggingface.co/spaces/depth-anything/Depth-Anything-V2/blob/main/README_Github.md"><b>Try our latest Depth Anything V2 models!</b></a><br>
-    (Due to the issue with our V2 Github repositories, we temporarily upload the content to Huggingface space)
+    <a href="https://github.com/DepthAnything/Depth-Anything-V2"><b>Try our latest Depth Anything V2 models!</b></a><br>
 </div>
 
 ## News
