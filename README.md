@@ -5,7 +5,8 @@
 
 <sup>1</sup>HKU&emsp;&emsp;&emsp;&emsp;<sup>2</sup>TikTok&emsp;&emsp;&emsp;&emsp;<sup>3</sup>CUHK&emsp;&emsp;&emsp;&emsp;<sup>4</sup>ZJU
 
-&dagger;project lead&emsp;*corresponding author
+&dagger;project lead&emsp;*corresponding author  
+&dagger;[Bingyi Kang](https://bingykang.github.io/) initially proposed this project and advised in every aspect.
 
 **CVPR 2024**
 
