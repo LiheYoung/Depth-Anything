@@ -1,7 +1,7 @@
 <div align="center">
 <h2>Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data</h2>
 
-[**Lihe Yang**](https://liheyoung.github.io/)<sup>1</sup> · [**Bingyi Kang**](https://scholar.google.com/citations?user=NmHgX-wAAAAJ)<sup>2&dagger;</sup> · [**Zilong Huang**](http://speedinghzl.github.io/)<sup>2</sup> · [**Xiaogang Xu**](https://xiaogang00.github.io/)<sup>3,4</sup> · [**Jiashi Feng**](https://sites.google.com/site/jshfeng/)<sup>2</sup> · [**Hengshuang Zhao**](https://hszhao.github.io/)<sup>1*</sup>
+[**Lihe Yang**](https://liheyoung.github.io/)<sup>1</sup> · [**Bingyi Kang**](https://bingykang.github.io/)<sup>2&dagger;</sup> · [**Zilong Huang**](http://speedinghzl.github.io/)<sup>2</sup> · [**Xiaogang Xu**](https://xiaogang00.github.io/)<sup>3,4</sup> · [**Jiashi Feng**](https://sites.google.com/site/jshfeng/)<sup>2</sup> · [**Hengshuang Zhao**](https://hszhao.github.io/)<sup>1*</sup>
 
 <sup>1</sup>HKU&emsp;&emsp;&emsp;&emsp;<sup>2</sup>TikTok&emsp;&emsp;&emsp;&emsp;<sup>3</sup>CUHK&emsp;&emsp;&emsp;&emsp;<sup>4</sup>ZJU
 
