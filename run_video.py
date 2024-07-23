@@ -15,12 +15,16 @@ if __name__ == '__main__':
     parser.add_argument('--video-path', type=str)
     parser.add_argument('--outdir', type=str, default='./vis_video_depth')
     parser.add_argument('--encoder', type=str, default='vitl', choices=['vits', 'vitb', 'vitl'])
+
+    parser.add_argument('--pred-only', dest='pred_only', action='store_true', help='only display the prediction')
+    parser.add_argument('--grayscale', dest='grayscale', action='store_true', help='do not apply colorful palette')
     
     args = parser.parse_args()
     
     margin_width = 50
 
     DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
+    print(DEVICE)
     
     depth_anything = DepthAnything.from_pretrained('LiheYoung/depth_anything_{}14'.format(args.encoder)).to(DEVICE).eval()
     
@@ -64,7 +68,10 @@ if __name__ == '__main__':
         
         filename = os.path.basename(filename)
         output_path = os.path.join(args.outdir, filename[:filename.rfind('.')] + '_video_depth.mp4')
-        out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*"mp4v"), frame_rate, (output_width, frame_height))
+        if args.pred_only:
+            out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*"mp4v"), frame_rate, (frame_width, frame_height))
+        else:
+            out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*"mp4v"), frame_rate, (output_width, frame_height))
         
         while raw_video.isOpened():
             ret, raw_frame = raw_video.read()
@@ -83,12 +90,17 @@ if __name__ == '__main__':
             depth = (depth - depth.min()) / (depth.max() - depth.min()) * 255.0
             
             depth = depth.cpu().numpy().astype(np.uint8)
-            depth_color = cv2.applyColorMap(depth, cv2.COLORMAP_INFERNO)
+            if args.grayscale:
+                depth_color = np.repeat(depth[..., np.newaxis], 3, axis=-1)
+            else:
+                depth_color = cv2.applyColorMap(depth, cv2.COLORMAP_INFERNO)
             
             split_region = np.ones((frame_height, margin_width, 3), dtype=np.uint8) * 255
             combined_frame = cv2.hconcat([raw_frame, split_region, depth_color])
-            
-            out.write(combined_frame)
+            if args.pred_only:
+                out.write(depth_color)
+            else:
+                out.write(combined_frame)
         
         raw_video.release()
         out.release()
